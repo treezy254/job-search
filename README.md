@@ -1,42 +1,73 @@
 # Job Search Application
-## Getting Started
+
+This application allows you to search for job listings and analyze their relevance based on your CV.
+
+## Setup and Run Locally
 
 ### Prerequisites
 
-- Docker
-- Docker Compose
+- Python 3.x
+- pip
 
-### Installation
+### Steps
 
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/job_search.git
+   git clone <repository_url>
    cd job_search
+### Run the application:
 
-2. Build the Docker image:
+```
+./run_local.sh
+```
 
-    ```sh
-    docker-compose build
-    ```
+Follow the prompts to enter the job title, location, and optionally use your CV to refine the search.
 
-3. Run the Docker container:
-    ```sh
-    docker-compose up
-    ```
 ### Configuration
-Update the config/config.py file with your API keys and other configuration settings. You can also use environment variables to override the default settings.
+Update the config.py file with your API keys and priority domains:
 
-### Usage
-Modify the main.py file to use your desired functionality from the modules.
-Run the application inside the Docker container.
-Project Modules
-- config/config.py: Configuration settings for the application.
-- modules/ai.py: AI-related functions for job evaluation.
-- modules/cv_parser.py: Functions for parsing CV files.
-- modules/job_search.py: Functions for searching and evaluating job listings.
-modules/utils.py: Utility functions such as logging setup.
+### config.py
+```
+API_KEY = "YOUR_GOOGLE_API_KEY"
+CSE_ID = "YOUR_CUSTOM_SEARCH_ENGINE_ID"
+PRIORITY_DOMAINS = [
+    "linkedin.com", "indeed.com", "glassdoor.com", "monster.com",
+    "careerbuilder.com", "dice.com", "ziprecruiter.com"
+]
+```
+### Dependencies
+The required Python packages are listed in the requirements.txt file:
+
+~~~
+requests
+PyPDF2
+python-docx
+transformers
+torch
+scikit-learn
+beautifulsoup4
+python-whois
+spacy
+~~~
+
+Additionally, download the spaCy model:
+```
+python -m spacy download en_core_web_sm
+```
+
+### Running with Docker
+If you prefer to run the application with Docker, use the following commands:
+
+Build the Docker image:
+```
+docker-compose build
+```
+
+Run the Docker container:
+```
+docker-compose up
+```
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
