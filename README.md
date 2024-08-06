@@ -13,9 +13,11 @@ This application allows you to search for job listings and analyze their relevan
 
 1. Clone the repository:
 
-   ```sh
-   git clone <repository_url>
-   cd job_search
+```sh
+git clone https://github.com/treezy254/job-search.git
+cd job_search
+```
+
 ### Run the application:
 
 ```
