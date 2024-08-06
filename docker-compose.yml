@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  job_search:
+    build: .
+    container_name: job_search
+    volumes:
+      - .:/app
+    tty: true
